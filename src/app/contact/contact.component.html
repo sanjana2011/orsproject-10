@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">
+        Add Contact
+    </h1>
+
+    <h1 *ngIf="form.data.id > 0" align="center" style="margin-bottom: 5px; color: navy">
+        Update Contact
+    </h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">
+            {{ form.message }}
+        </h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">
+            {{ form.message }}
+        </h3>
+    </div>
+
+    <table>
+        <!-- Name -->
+        <tr>
+            <th align="left">Name<span style="color: red">*</span></th>
+            <td align="center">
+                <input type="text"
+                       name="name"
+                       [(ngModel)]="form.data.name"
+                       placeholder="Enter Name">
+            </td>
+            <td style="position: fixed; color: red;">
+                {{ form.inputerror.name }}
+            </td>
+        </tr>
+
+        <!-- Email -->
+        <tr>
+            <th align="left">Email<span style="color: red">*</span></th>
+            <td align="center">
+                <input type="email"
+                       name="email"
+                       [(ngModel)]="form.data.email"
+                       placeholder="Enter Email">
+            </td>
+            <td style="position: fixed; color: red;">
+                {{ form.inputerror.email }}
+            </td>
+        </tr>
+
+        <!-- Mobile No -->
+        <tr>
+            <th align="left">Mobile No<span style="color: red">*</span></th>
+            <td align="center">
+                <input type="text"
+                       name="mobileNo"
+                       [(ngModel)]="form.data.mobileNo"
+                       placeholder="Enter Mobile Number">
+            </td>
+            <td style="position: fixed; color: red;">
+                {{ form.inputerror.mobileNo }}
+            </td>
+        </tr>
+
+        <!-- Message -->
+        <tr>
+            <th align="left">Message<span style="color: red">*</span></th>
+            <td align="center">
+                <textarea
+                    style="width: 165px; resize: none;"
+                    name="message"
+                    [(ngModel)]="form.data.message"
+                    rows="3"
+                    placeholder="Enter Message">
+                </textarea>
+            </td>
+            <td style="position: fixed; color: red;">
+                {{ form.inputerror.message }}
+            </td>
+        </tr>
+
+        <tr></tr>
+
+        <!-- Buttons -->
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button type="button" (click)="submit()">save</button>
+                &nbsp;
+                <button type="button" (click)="forward('contactlist')">list</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<app-footer></app-footer>

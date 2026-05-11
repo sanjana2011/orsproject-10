@@ -1,0 +1,166 @@
+
+<div style="background: url('assets/files/image.png.jpg') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 200px;
+    padding-bottom: 350px;
+    width: 100%;">
+    
+    <form name="rollForm" (ngSubmit)="go()">
+        <div align="center">
+            <h1 style="font-size: 40px; padding-top: 24px; color: #162390;">Get Marksheet</h1>
+        </div>
+        
+        <!-- Error and Success Messages -->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" *ngIf="form.message">
+                <div [ngClass]="form.error ? 'alert alert-danger alert-dismissible' : 'alert alert-success alert-dismissible'">
+                    <button type="button" class="close" data-dismiss="alert" (click)="form.message = null">&times;</button>
+                    <h4>
+                        <font [color]="form.error ? 'red' : 'green'">{{form.message}}</font>
+                    </h4>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-2">
+                <b>Roll No:</b>
+                <input type="text" name="rollNo" id="rollNo" class="form-control" 
+                    [(ngModel)]="form.data.rollNo"
+                    placeholder="Enter Roll Number">
+            </div>
+            <div class="col-md-2" style="display: flex; gap: 10px; padding-top: 24px;">
+                <input type="submit" class="btn btn-primary btn-md" style="font-size: 17px" 
+                    [disabled]="!validate()" value="Go">
+                <input type="button" class="btn btn-primary btn-md" style="font-size: 17px" 
+                    (click)="reset()" value="Reset">
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <font color="red">{{form.inputerror?.rollNo}}</font>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </form>
+    <br>
+    <br>
+
+    <!-- Marksheet Table -->
+    <div class="container" *ngIf="form.list && form.list.rollNo">
+        <table width="100%" style="background-color: white;" border="2px">
+            <tr style="background-color: #e1b5158c;">
+                <th style="font-size: 18px; text-align: center; height: 30px;" colspan="2">Roll No</th>
+                <td style="font-size: 18px; text-align: center; height: 30px;" colspan="3">{{form.list.rollNo}}</td>
+            </tr>
+            <tr style="background-color: #e1b5158c;">
+                <th style="font-size: 18px; text-align: center; height: 30px;" colspan="2">Name</th>
+                <td style="font-size: 18px; text-align: center; height: 30px;" colspan="3">{{form.list.name}}</td>
+            </tr>
+            <tr style="background-color: #e1b5158c;">
+                <th style="font-size: 18px; text-align: center; height: 30px;">Subject</th>
+                <th style="font-size: 18px; text-align: center; height: 30px;">Max Marks</th>
+                <th style="font-size: 18px; text-align: center; height: 30px;">Min Marks</th>
+                <th style="font-size: 18px; text-align: center; height: 30px;" colspan="2">Marks Obtain</th>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <th style="font-size: 18px; text-align: center; height: 30px;">Marks</th>
+                <th style="color: blue; font-size: 18px; text-align: center; height: 30px;">Grade</th>
+            </tr>
+            <tr>
+                <th style="font-size: 18px; text-align: center; height: 30px;">Physics</th>
+                <td align="center">100</td>
+                <td align="center">35</td>
+                <td align="center">
+                    <span [ngStyle]="{'color': (form.list.physics >= 35) ? 'black' : 'red'}">
+                        {{form.list.physics}}
+                    </span>
+                    <span *ngIf="form.list.physics < 35" style="color: red;">*</span>
+                </td>
+                <td align="center">
+                    <span [ngStyle]="{'color': (form.list.physics >= 35) ? 'black' : 'red'}">
+                        {{getGrade(form.list.physics)}}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 18px; text-align: center; height: 30px;">Chemistry</th>
+                <td align="center">100</td>
+                <td align="center">35</td>
+                <td align="center">
+                    <span [ngStyle]="{'color': (form.list.chemistry >= 35) ? 'black' : 'red'}">
+                        {{form.list.chemistry}}
+                    </span>
+                    <span *ngIf="form.list.chemistry < 35" style="color: red;">*</span>
+                </td>
+                <td align="center">
+                    <span [ngStyle]="{'color': (form.list.chemistry >= 35) ? 'black' : 'red'}">
+                        {{getGrade(form.list.chemistry)}}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 18px; text-align: center; height: 30px;">Maths</th>
+                <td align="center">100</td>
+                <td align="center">35</td>
+                <td align="center">
+                    <span [ngStyle]="{'color': (form.list.maths >= 35) ? 'black' : 'red'}">
+                        {{form.list.maths}}
+                    </span>
+                    <span *ngIf="form.list.maths < 35" style="color: red;">*</span>
+                </td>
+                <td align="center">
+                    <span [ngStyle]="{'color': (form.list.maths >= 35) ? 'black' : 'red'}">
+                        {{getGrade(form.list.maths)}}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 18px; text-align: center; height: 30px;" colspan="2">Total</th>
+                <td align="center" colspan="3">
+                    {{form.list.maths + form.list.physics + form.list.chemistry}}
+                </td>
+            </tr>
+            
+            <!-- If passed in all subjects -->
+            <div *ngIf="form.list.physics >= 35 && form.list.chemistry >= 35 && form.list.maths >= 35">
+                <tr>
+                    <th style="font-size: 18px; text-align: center; height: 30px;" colspan="2">Percentage</th>
+                    <td align="center" colspan="3">
+                        {{((form.list.physics + form.list.maths + form.list.chemistry) * 100) / 300 | number:'1.2-2'}}%
+                    </td>
+                </tr>
+                <tr>
+                    <th style="font-size: 18px; text-align: center; height: 30px;" colspan="2">
+                        <font color="blue">Grade:</font>
+                        <b>{{getOverallGrade()}}</b>
+                    </th>
+                    <td align="center" colspan="3">
+                        <font color="green"><b>PASS</b></font>
+                    </td>
+                </tr>
+            </div>
+            
+            <!-- If failed in any subject -->
+            <div *ngIf="form.list.physics < 35 || form.list.chemistry < 35 || form.list.maths < 35">
+                <tr>
+                    <th style="font-size: 18px; text-align: center; height: 30px;" colspan="2">
+                        <font color="blue">Final Grade:</font>
+                        <font color="red"><b>F</b></font>
+                    </th>
+                    <td align="center" colspan="3">
+                        <font color="red"><b>FAIL</b></font>
+                    </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+</div>
