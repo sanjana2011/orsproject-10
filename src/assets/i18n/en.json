@@ -104,58 +104,5 @@
             
         }
 
-    },
-     "EventForm": {
-        "AddEvent": "Add Event",
-        "UpdateEvent": "Update Event",
-        "EventName": "Event Name",
-        "EventDate": "Event Date",
-        "EventType": "Event Type",
-        "CollegeName": "College Name",
-        "SelectOptions": {
-            "Select": "------------Select------------"
-        },
-        "Placeholders": {
-            "EventName": "Enter Event Name",
-            "EventType": "Enter Event Type",
-            "EventDate": "Enter Event Date"
-        },
-        "Buttons": {
-            "Save": "Save",
-            "List": "List"
-        }
-    },
-    "EventList": {
-        "Title": "Event List",
-        "EmptyTitle": "Event List",
-        "SelectOptions": {
-            "SelectCollege": "------------Select------------"
-        },
-        "Placeholders": {
-            "EventName": "Enter Event Name",
-            "EventType": "Enter Event Type"
-        },
-        "Buttons": {
-            "Search": "Search",
-            "Reset": "Reset",
-            "Previous": "Previous",
-            "New": "New",
-            "Delete": "Delete",
-            "Next": "Next",
-            "Back": "Back"
-        },
-        "Table": {
-            "SNo": "S.No",
-            "EventName": "Event Name",
-            "EventDate": "Event Date",
-            "EventType": "Event Type",
-            "CollegeName": "College Name",
-            "Edit": "Edit",
-            "EditLink": "Edit"
-        }
     }
-
-
-    }
-
 }
