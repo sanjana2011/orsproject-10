@@ -1,0 +1,133 @@
+
+<style type="text/css">
+.hm {
+  background-image: url('assets/files/image.png.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.text {
+  text-align: center;
+}
+</style>
+
+<div class="hm pb-5">
+
+  <!-- List has data -->
+  <ng-container *ngIf="form.list.length > 0">
+
+    <div align="center">
+      <h1 style="color: #2F4156;"><b>Merit List</b></h1>
+    </div>
+
+    <!-- Success Message -->
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div *ngIf="!form.error && form.message" class="col-md-4 alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4><font color="#008000">{{ form.message }}</font></h4>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div *ngIf="form.error && form.message" class="col-md-4 alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4><font color="red">{{ form.message }}</font></h4>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4" align="center">
+        <input type="submit" (click)="reset()" class="btn btn-primary btn-md" style="font-size: 15px" value="Refresh">
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-warning" (click)="openMeritReport()">
+          Merit list
+        </button>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+
+    <br>
+
+    <!-- Table -->
+    <div style="margin-bottom: 20px;" class="table-responsive">
+      <table class="table table-bordered table-dark table-hover">
+        <thead>
+          <tr style="background-color: #8C8C8C;">
+            <th width="5%" class="text">Rank</th>
+            <th width="10%" class="text">Roll No</th>
+            <th width="20%" class="text">Name</th>
+            <th width="12%" class="text">Physics</th>
+            <th width="12%" class="text">Chemistry</th>
+            <th width="12%" class="text">Maths</th>
+            <th width="10%" class="text">Total</th>
+            <th width="10%" class="text">Percentage</th>
+            <th width="9%" class="text">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of form.list; let i = index">
+            <td class="text">{{ m.rank }}</td>
+            <td class="text">{{ m.rollNo }}</td>
+            <td class="text">{{ m.name }}</td>
+            <td class="text" [ngStyle]="{'color': m.physics >= 35 ? 'white' : 'red'}">
+              {{ m.physics }}
+              <span *ngIf="m.physics < 35" style="color: red;">*</span>
+            </td>
+            <td class="text" [ngStyle]="{'color': m.chemistry >= 35 ? 'white' : 'red'}">
+              {{ m.chemistry }}
+              <span *ngIf="m.chemistry < 35" style="color: red;">*</span>
+            </td>
+            <td class="text" [ngStyle]="{'color': m.maths >= 35 ? 'white' : 'red'}">
+              {{ m.maths }}
+              <span *ngIf="m.maths < 35" style="color: red;">*</span>
+            </td>
+            <td class="text">{{ getTotal(m) }}</td>
+            <td class="text">{{ getPercentage(m) | number:'1.2-2' }}%</td>
+            <td class="text" [ngStyle]="{'color': getGrade(m) !== 'F' ? 'green' : 'red'}">
+              <b>{{ getGrade(m) }}</b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </ng-container>
+
+  <!-- List is empty -->
+  <ng-container *ngIf="form.list.length == 0">
+
+    <div align="center">
+      <h1 style="font-size: 40px; color: #162390;">Merit List</h1>
+    </div>
+
+    <br>
+
+    <!-- Error Message -->
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div *ngIf="form.error && form.message" class="col-md-4 alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4><font color="red">{{ form.message }}</font></h4>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <br>
+
+    <div align="center">
+      <input type="submit" (click)="reset()" class="btn btn-primary btn-md" style="font-size: 17px" value="Back">
+    </div>
+
+  </ng-container>
+
+</div>

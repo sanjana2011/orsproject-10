@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Transport</h1>
+    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Transport</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">Vehicle Type<span style="color: red">*</span></th>
+            <td><input type="text" name="vehicleType" [(ngModel)]="form.data.vehicleType" placeholder="Enter Vehicle Type"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.vehicleType}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Driver Name<span style="color: red">*</span></th>
+            <td><input type="text" name="driverName" [(ngModel)]="form.data.driverName" placeholder="Enter Driver Name"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.driverName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Charges<span style="color: red">*</span></th>
+            <td><input type="number" name="charges" [(ngModel)]="form.data.charges" placeholder="Enter Charges"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.charges}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="submit()">save</button> &nbsp;
+                <button (click)="forward('/transportlist')">list</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>
