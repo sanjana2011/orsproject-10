@@ -101,57 +101,6 @@
             "reset": "रीसेट करें",
             "List": "सूची"
 
-        },
-         "EventForm": {
-        "AddEvent": "ईवेंट जोड़ें",
-        "UpdateEvent": "ईवेंट अपडेट करें",
-        "EventName": "ईवेंट का नाम",
-        "EventDate": "ईवेंट तिथि",
-        "EventType": "ईवेंट प्रकार",
-        "CollegeName": "कॉलेज का नाम",
-        "SelectOptions": {
-            "Select": "------------चुनें------------"
-        },
-        "Placeholders": {
-            "EventName": "ईवेंट का नाम दर्ज करें",
-            "EventType": "ईवेंट प्रकार दर्ज करें"
-        },
-        "Buttons": {
-            "Save": "सहेजें",
-            "List": "सूची"
-        }
-    },
-    "EventList": {
-        "Title": "ईवेंट सूची",
-        "EmptyTitle": "ईवेंट सूची",
-        "SelectOptions": {
-            "SelectCollege": "------------चुनें------------"
-        },
-        "Placeholders": {
-            "EventName": "ईवेंट का नाम दर्ज करें",
-            "EventType": "ईवेंट प्रकार दर्ज करें"
-        },
-        "Buttons": {
-            "Search": "खोजें",
-            "Reset": "रीसेट करें",
-            "Previous": "पिछला",
-            "New": "नया",
-            "Delete": "हटाएं",
-            "Next": "अगला",
-            "Back": "वापस"
-        },
-        "Table": {
-            "SNo": "क्र.सं.",
-            "EventName": "ईवेंट का नाम",
-            "EventDate": "ईवेंट तिथि",
-            "EventType": "ईवेंट प्रकार",
-            "CollegeName": "कॉलेज का नाम",
-            "Edit": "संपादित करें",
-            "EditLink": "संपादित करें"
-        }
-    }
-}}
-
         }
     }
 }
