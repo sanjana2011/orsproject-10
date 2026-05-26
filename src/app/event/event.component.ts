@@ -12,10 +12,9 @@ export class EventComponent extends BaseCtl {
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
     super(locator.endpoints.EVENT, locator, route);
      }
-<<<<<<< HEAD
+
 
 
 } 
-=======
-} 
->>>>>>> 824f2a27e426d48965edfd0eaae47560913bf9b7
+
+
