@@ -22,7 +22,7 @@ export class AuthServiceService implements HttpInterceptor {
       req = req.clone({
         setHeaders: {
           "withCredentials": "true",
-          "name": "Sawan",
+          "name": "Sanjana",
           Authorization: this.token
         }
       })
