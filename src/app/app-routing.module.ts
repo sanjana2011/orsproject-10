@@ -147,7 +147,7 @@ const routes: Routes = [
   {
     path: 'faculty',
     component: FacultyComponent
-  },
+  }, 
   {
     path: 'faculty/:id',
     component: FacultyComponent

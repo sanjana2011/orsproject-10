@@ -22,6 +22,6 @@ export class EndpointServiceService {
   public PATIENT= this.SERVER_URL + "/Patient";
   public TRANSPORT= this.SERVER_URL + "/Transport";
   public CLAIM= this.SERVER_URL + "/Claim";
-  public EVENT= this.SERVER_URL + "/Event";
+  public EVENT= this.SERVER_URL + "/Event";  
 
 }
