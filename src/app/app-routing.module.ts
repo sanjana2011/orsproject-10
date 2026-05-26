@@ -141,7 +141,7 @@ const routes: Routes = [
     component: TimetableComponent
   },
   {
-    path: 'timetablelist',
+    path:  'timetablelist',
     component: TimetableListComponent
   },
   {

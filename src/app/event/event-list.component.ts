@@ -10,6 +10,6 @@ import { ActivatedRoute } from '@angular/router';
 export class EventListComponent extends BaseListCtl {
 
   constructor(locator: ServiceLocatorService, route: ActivatedRoute) {
-    super(locator.endpoints.EVENT, locator, route);
+      super(locator.endpoints.EVENT, locator, route);
   }
 } 
