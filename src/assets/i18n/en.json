@@ -103,7 +103,7 @@
             "List": "List"
             
         }
-<<<<<<< HEAD
+
     },
      "EventForm": {
         "AddEvent": "Add Event",
@@ -155,7 +155,7 @@
         }
     }
 
-=======
+
     }
->>>>>>> d29b312e156c52aa1f5f5f281e451d8da176b856
+
 }
