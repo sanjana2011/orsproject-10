@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
-  templateUrl: './event-list.component.html'
+  templateUrl: './event-list.component.html' 
 })
 export class EventListComponent extends BaseListCtl {
 
