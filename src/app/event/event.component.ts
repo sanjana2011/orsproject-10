@@ -7,7 +7,7 @@ import { ServiceLocatorService } from '../service-locator.service';
   selector: 'app-event',
   templateUrl: './event.component.html'
 })
-export class EventComponent extends BaseCtl {
+export class EventComponent extends BaseCtl { 
 
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
     super(locator.endpoints.EVENT, locator, route);
