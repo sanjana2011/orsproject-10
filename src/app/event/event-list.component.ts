@@ -13,3 +13,4 @@ export class EventListComponent extends BaseListCtl {
       super(locator.endpoints.EVENT, locator, route);
   }
 } 
+   
