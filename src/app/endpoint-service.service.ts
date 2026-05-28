@@ -25,3 +25,4 @@ export class EndpointServiceService {
   public EVENT= this.SERVER_URL + "/Event";   
 
 }
+   
